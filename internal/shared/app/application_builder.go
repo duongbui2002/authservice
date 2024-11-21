@@ -1,8 +1,8 @@
 package app
 
 import (
-	"github.com/duongbui2002/core-package/core/fxapp"
-	"github.com/duongbui2002/core-package/core/fxapp/contracts"
+	"github.com/duongbui2002/core-package/fxapp"
+	"github.com/duongbui2002/core-package/fxapp/contracts"
 )
 
 type AuthApplicationBuilder struct {

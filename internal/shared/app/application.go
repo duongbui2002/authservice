@@ -1,9 +1,9 @@
 package app
 
 import (
-	"github.com/duongbui2002/core-package/core/config/environment"
-	"github.com/duongbui2002/core-package/core/fxapp"
-	"github.com/duongbui2002/core-package/core/logger"
+	"github.com/duongbui2002/core-package/config/environment"
+	"github.com/duongbui2002/core-package/fxapp"
+	"github.com/duongbui2002/core-package/logger"
 	"go.uber.org/fx"
 )
 

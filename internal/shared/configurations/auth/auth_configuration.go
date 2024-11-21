@@ -1,8 +1,9 @@
 package auth
 
 import (
-	"github.com/duongbui2002/core-package/core/fxapp/contracts"
-	echocontracts "github.com/duongbui2002/core-package/core/http/customecho/contracts"
+	"fmt"
+	"github.com/duongbui2002/core-package/fxapp/contracts"
+	echocontracts "github.com/duongbui2002/core-package/http/customecho/contracts"
 	"github.com/duongbui2002/myblog-authservice/internal/auth/configurations"
 	"github.com/labstack/echo/v4"
 	"net/http"
@@ -26,12 +27,18 @@ func (ic *AuthServiceConfigurator) ConfigureAuth() {
 }
 
 func (ic *AuthServiceConfigurator) MapAuthEndpoints() {
-	ic.ResolveFunc(func(authServer echocontracts.EchoHttpServer, cfg interface{}) {
+	ic.ResolveFunc(func(authServer echocontracts.EchoHttpServer, cfg *config.Config) {
 		authServer.SetupDefaultMiddlewares()
 
 		authServer.RouteBuilder().RegisterRoutes(func(e *echo.Echo) {
 			e.GET("", func(ec echo.Context) error {
-				return ec.String(http.StatusOK, "Hello, World!")
+				return ec.String(
+					http.StatusOK,
+					fmt.Sprintf(
+						"%s is running...",
+						cfg.AppOptions.GetMicroserviceNameUpper(),
+					),
+				)
 			})
 		})
 	})
